@@ -24,6 +24,6 @@ public class Comment {
     @Column(name = "username")
     private String username;
     @Column(name = "id_news")
-    private long id_news;
+    private long idNews;
 
 }

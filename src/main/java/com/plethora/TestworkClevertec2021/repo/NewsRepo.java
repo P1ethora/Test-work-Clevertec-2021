@@ -7,11 +7,15 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * связь с таблицей в базе данных News
+ */
 @Repository
 public interface NewsRepo extends PagingAndSortingRepository<News,Long> {
 
-    //TODO доработать поиск
-    @Query(value = "SELECT * FROM news WHERE (title, text)", nativeQuery = true)
-    public List<News> search(String keyword);
 
+    @Query(value = "SELECT u FROM News u WHERE u.text LIKE '%' || :keyword || '%'", nativeQuery = true)
+    List<News> search(String keyword);
+
+    List<News> findAllByTextContains(String text);
 }

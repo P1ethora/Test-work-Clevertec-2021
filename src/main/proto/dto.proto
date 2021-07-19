@@ -18,10 +18,21 @@ message NewsDto {
   string date = 2;
   string title = 3;
   string text = 4;
-  repeated ListOfComment comments=5;
+  ListOfComment listComment = 5;
 
+}
+
+message NewsDtoTitle {
+  int64 id = 1;
+  string date = 2;
+  string title = 3;
+  int32 sizeComments = 4;
 }
 
 message ListOfComment {
   repeated CommentDto comments=1;
+}
+
+message ListOfNewsTitle {
+  repeated NewsDtoTitle newsDtoTitles = 1;
 }

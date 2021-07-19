@@ -4,28 +4,27 @@
 package com.plethora.TestworkClevertec2021.dto;
 
 /**
- * Protobuf type {@code NewsDto}
+ * Protobuf type {@code NewsDtoTitle}
  */
-public final class NewsDto extends
+public final class NewsDtoTitle extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:NewsDto)
-    NewsDtoOrBuilder {
+    // @@protoc_insertion_point(message_implements:NewsDtoTitle)
+    NewsDtoTitleOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use NewsDto.newBuilder() to construct.
-  private NewsDto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use NewsDtoTitle.newBuilder() to construct.
+  private NewsDtoTitle(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private NewsDto() {
+  private NewsDtoTitle() {
     date_ = "";
     title_ = "";
-    text_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new NewsDto();
+    return new NewsDtoTitle();
   }
 
   @java.lang.Override
@@ -33,7 +32,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private NewsDto(
+  private NewsDtoTitle(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -68,23 +67,9 @@ private static final long serialVersionUID = 0L;
             title_ = s;
             break;
           }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 32: {
 
-            text_ = s;
-            break;
-          }
-          case 42: {
-            com.plethora.TestworkClevertec2021.dto.ListOfComment.Builder subBuilder = null;
-            if (listComment_ != null) {
-              subBuilder = listComment_.toBuilder();
-            }
-            listComment_ = input.readMessage(com.plethora.TestworkClevertec2021.dto.ListOfComment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(listComment_);
-              listComment_ = subBuilder.buildPartial();
-            }
-
+            sizeComments_ = input.readInt32();
             break;
           }
           default: {
@@ -108,15 +93,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.plethora.TestworkClevertec2021.dto.Dto.internal_static_NewsDto_descriptor;
+    return com.plethora.TestworkClevertec2021.dto.Dto.internal_static_NewsDtoTitle_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.plethora.TestworkClevertec2021.dto.Dto.internal_static_NewsDto_fieldAccessorTable
+    return com.plethora.TestworkClevertec2021.dto.Dto.internal_static_NewsDtoTitle_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.plethora.TestworkClevertec2021.dto.NewsDto.class, com.plethora.TestworkClevertec2021.dto.NewsDto.Builder.class);
+            com.plethora.TestworkClevertec2021.dto.NewsDtoTitle.class, com.plethora.TestworkClevertec2021.dto.NewsDtoTitle.Builder.class);
   }
 
   public static final int ID_FIELD_NUMBER = 1;
@@ -206,68 +191,15 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int TEXT_FIELD_NUMBER = 4;
-  private volatile java.lang.Object text_;
+  public static final int SIZECOMMENTS_FIELD_NUMBER = 4;
+  private int sizeComments_;
   /**
-   * <code>string text = 4;</code>
-   * @return The text.
+   * <code>int32 sizeComments = 4;</code>
+   * @return The sizeComments.
    */
   @java.lang.Override
-  public java.lang.String getText() {
-    java.lang.Object ref = text_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      text_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string text = 4;</code>
-   * @return The bytes for text.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getTextBytes() {
-    java.lang.Object ref = text_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      text_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int LISTCOMMENT_FIELD_NUMBER = 5;
-  private com.plethora.TestworkClevertec2021.dto.ListOfComment listComment_;
-  /**
-   * <code>.ListOfComment listComment = 5;</code>
-   * @return Whether the listComment field is set.
-   */
-  @java.lang.Override
-  public boolean hasListComment() {
-    return listComment_ != null;
-  }
-  /**
-   * <code>.ListOfComment listComment = 5;</code>
-   * @return The listComment.
-   */
-  @java.lang.Override
-  public com.plethora.TestworkClevertec2021.dto.ListOfComment getListComment() {
-    return listComment_ == null ? com.plethora.TestworkClevertec2021.dto.ListOfComment.getDefaultInstance() : listComment_;
-  }
-  /**
-   * <code>.ListOfComment listComment = 5;</code>
-   */
-  @java.lang.Override
-  public com.plethora.TestworkClevertec2021.dto.ListOfCommentOrBuilder getListCommentOrBuilder() {
-    return getListComment();
+  public int getSizeComments() {
+    return sizeComments_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -293,11 +225,8 @@ private static final long serialVersionUID = 0L;
     if (!getTitleBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, title_);
     }
-    if (!getTextBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, text_);
-    }
-    if (listComment_ != null) {
-      output.writeMessage(5, getListComment());
+    if (sizeComments_ != 0) {
+      output.writeInt32(4, sizeComments_);
     }
     unknownFields.writeTo(output);
   }
@@ -318,12 +247,9 @@ private static final long serialVersionUID = 0L;
     if (!getTitleBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, title_);
     }
-    if (!getTextBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, text_);
-    }
-    if (listComment_ != null) {
+    if (sizeComments_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(5, getListComment());
+        .computeInt32Size(4, sizeComments_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -335,10 +261,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.plethora.TestworkClevertec2021.dto.NewsDto)) {
+    if (!(obj instanceof com.plethora.TestworkClevertec2021.dto.NewsDtoTitle)) {
       return super.equals(obj);
     }
-    com.plethora.TestworkClevertec2021.dto.NewsDto other = (com.plethora.TestworkClevertec2021.dto.NewsDto) obj;
+    com.plethora.TestworkClevertec2021.dto.NewsDtoTitle other = (com.plethora.TestworkClevertec2021.dto.NewsDtoTitle) obj;
 
     if (getId()
         != other.getId()) return false;
@@ -346,13 +272,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDate())) return false;
     if (!getTitle()
         .equals(other.getTitle())) return false;
-    if (!getText()
-        .equals(other.getText())) return false;
-    if (hasListComment() != other.hasListComment()) return false;
-    if (hasListComment()) {
-      if (!getListComment()
-          .equals(other.getListComment())) return false;
-    }
+    if (getSizeComments()
+        != other.getSizeComments()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -371,80 +292,76 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getDate().hashCode();
     hash = (37 * hash) + TITLE_FIELD_NUMBER;
     hash = (53 * hash) + getTitle().hashCode();
-    hash = (37 * hash) + TEXT_FIELD_NUMBER;
-    hash = (53 * hash) + getText().hashCode();
-    if (hasListComment()) {
-      hash = (37 * hash) + LISTCOMMENT_FIELD_NUMBER;
-      hash = (53 * hash) + getListComment().hashCode();
-    }
+    hash = (37 * hash) + SIZECOMMENTS_FIELD_NUMBER;
+    hash = (53 * hash) + getSizeComments();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.plethora.TestworkClevertec2021.dto.NewsDto parseFrom(
+  public static com.plethora.TestworkClevertec2021.dto.NewsDtoTitle parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.plethora.TestworkClevertec2021.dto.NewsDto parseFrom(
+  public static com.plethora.TestworkClevertec2021.dto.NewsDtoTitle parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.plethora.TestworkClevertec2021.dto.NewsDto parseFrom(
+  public static com.plethora.TestworkClevertec2021.dto.NewsDtoTitle parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.plethora.TestworkClevertec2021.dto.NewsDto parseFrom(
+  public static com.plethora.TestworkClevertec2021.dto.NewsDtoTitle parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.plethora.TestworkClevertec2021.dto.NewsDto parseFrom(byte[] data)
+  public static com.plethora.TestworkClevertec2021.dto.NewsDtoTitle parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.plethora.TestworkClevertec2021.dto.NewsDto parseFrom(
+  public static com.plethora.TestworkClevertec2021.dto.NewsDtoTitle parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.plethora.TestworkClevertec2021.dto.NewsDto parseFrom(java.io.InputStream input)
+  public static com.plethora.TestworkClevertec2021.dto.NewsDtoTitle parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.plethora.TestworkClevertec2021.dto.NewsDto parseFrom(
+  public static com.plethora.TestworkClevertec2021.dto.NewsDtoTitle parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.plethora.TestworkClevertec2021.dto.NewsDto parseDelimitedFrom(java.io.InputStream input)
+  public static com.plethora.TestworkClevertec2021.dto.NewsDtoTitle parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.plethora.TestworkClevertec2021.dto.NewsDto parseDelimitedFrom(
+  public static com.plethora.TestworkClevertec2021.dto.NewsDtoTitle parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.plethora.TestworkClevertec2021.dto.NewsDto parseFrom(
+  public static com.plethora.TestworkClevertec2021.dto.NewsDtoTitle parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.plethora.TestworkClevertec2021.dto.NewsDto parseFrom(
+  public static com.plethora.TestworkClevertec2021.dto.NewsDtoTitle parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -457,7 +374,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.plethora.TestworkClevertec2021.dto.NewsDto prototype) {
+  public static Builder newBuilder(com.plethora.TestworkClevertec2021.dto.NewsDtoTitle prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -473,26 +390,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code NewsDto}
+   * Protobuf type {@code NewsDtoTitle}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:NewsDto)
-      com.plethora.TestworkClevertec2021.dto.NewsDtoOrBuilder {
+      // @@protoc_insertion_point(builder_implements:NewsDtoTitle)
+      com.plethora.TestworkClevertec2021.dto.NewsDtoTitleOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.plethora.TestworkClevertec2021.dto.Dto.internal_static_NewsDto_descriptor;
+      return com.plethora.TestworkClevertec2021.dto.Dto.internal_static_NewsDtoTitle_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.plethora.TestworkClevertec2021.dto.Dto.internal_static_NewsDto_fieldAccessorTable
+      return com.plethora.TestworkClevertec2021.dto.Dto.internal_static_NewsDtoTitle_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.plethora.TestworkClevertec2021.dto.NewsDto.class, com.plethora.TestworkClevertec2021.dto.NewsDto.Builder.class);
+              com.plethora.TestworkClevertec2021.dto.NewsDtoTitle.class, com.plethora.TestworkClevertec2021.dto.NewsDtoTitle.Builder.class);
     }
 
-    // Construct using com.plethora.TestworkClevertec2021.dto.NewsDto.newBuilder()
+    // Construct using com.plethora.TestworkClevertec2021.dto.NewsDtoTitle.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -516,31 +433,25 @@ private static final long serialVersionUID = 0L;
 
       title_ = "";
 
-      text_ = "";
+      sizeComments_ = 0;
 
-      if (listCommentBuilder_ == null) {
-        listComment_ = null;
-      } else {
-        listComment_ = null;
-        listCommentBuilder_ = null;
-      }
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.plethora.TestworkClevertec2021.dto.Dto.internal_static_NewsDto_descriptor;
+      return com.plethora.TestworkClevertec2021.dto.Dto.internal_static_NewsDtoTitle_descriptor;
     }
 
     @java.lang.Override
-    public com.plethora.TestworkClevertec2021.dto.NewsDto getDefaultInstanceForType() {
-      return com.plethora.TestworkClevertec2021.dto.NewsDto.getDefaultInstance();
+    public com.plethora.TestworkClevertec2021.dto.NewsDtoTitle getDefaultInstanceForType() {
+      return com.plethora.TestworkClevertec2021.dto.NewsDtoTitle.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.plethora.TestworkClevertec2021.dto.NewsDto build() {
-      com.plethora.TestworkClevertec2021.dto.NewsDto result = buildPartial();
+    public com.plethora.TestworkClevertec2021.dto.NewsDtoTitle build() {
+      com.plethora.TestworkClevertec2021.dto.NewsDtoTitle result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -548,17 +459,12 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.plethora.TestworkClevertec2021.dto.NewsDto buildPartial() {
-      com.plethora.TestworkClevertec2021.dto.NewsDto result = new com.plethora.TestworkClevertec2021.dto.NewsDto(this);
+    public com.plethora.TestworkClevertec2021.dto.NewsDtoTitle buildPartial() {
+      com.plethora.TestworkClevertec2021.dto.NewsDtoTitle result = new com.plethora.TestworkClevertec2021.dto.NewsDtoTitle(this);
       result.id_ = id_;
       result.date_ = date_;
       result.title_ = title_;
-      result.text_ = text_;
-      if (listCommentBuilder_ == null) {
-        result.listComment_ = listComment_;
-      } else {
-        result.listComment_ = listCommentBuilder_.build();
-      }
+      result.sizeComments_ = sizeComments_;
       onBuilt();
       return result;
     }
@@ -597,16 +503,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.plethora.TestworkClevertec2021.dto.NewsDto) {
-        return mergeFrom((com.plethora.TestworkClevertec2021.dto.NewsDto)other);
+      if (other instanceof com.plethora.TestworkClevertec2021.dto.NewsDtoTitle) {
+        return mergeFrom((com.plethora.TestworkClevertec2021.dto.NewsDtoTitle)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.plethora.TestworkClevertec2021.dto.NewsDto other) {
-      if (other == com.plethora.TestworkClevertec2021.dto.NewsDto.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.plethora.TestworkClevertec2021.dto.NewsDtoTitle other) {
+      if (other == com.plethora.TestworkClevertec2021.dto.NewsDtoTitle.getDefaultInstance()) return this;
       if (other.getId() != 0L) {
         setId(other.getId());
       }
@@ -618,12 +524,8 @@ private static final long serialVersionUID = 0L;
         title_ = other.title_;
         onChanged();
       }
-      if (!other.getText().isEmpty()) {
-        text_ = other.text_;
-        onChanged();
-      }
-      if (other.hasListComment()) {
-        mergeListComment(other.getListComment());
+      if (other.getSizeComments() != 0) {
+        setSizeComments(other.getSizeComments());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -640,11 +542,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.plethora.TestworkClevertec2021.dto.NewsDto parsedMessage = null;
+      com.plethora.TestworkClevertec2021.dto.NewsDtoTitle parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.plethora.TestworkClevertec2021.dto.NewsDto) e.getUnfinishedMessage();
+        parsedMessage = (com.plethora.TestworkClevertec2021.dto.NewsDtoTitle) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -837,199 +739,35 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object text_ = "";
+    private int sizeComments_ ;
     /**
-     * <code>string text = 4;</code>
-     * @return The text.
+     * <code>int32 sizeComments = 4;</code>
+     * @return The sizeComments.
      */
-    public java.lang.String getText() {
-      java.lang.Object ref = text_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        text_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override
+    public int getSizeComments() {
+      return sizeComments_;
     }
     /**
-     * <code>string text = 4;</code>
-     * @return The bytes for text.
-     */
-    public com.google.protobuf.ByteString
-        getTextBytes() {
-      java.lang.Object ref = text_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        text_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string text = 4;</code>
-     * @param value The text to set.
+     * <code>int32 sizeComments = 4;</code>
+     * @param value The sizeComments to set.
      * @return This builder for chaining.
      */
-    public Builder setText(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      text_ = value;
+    public Builder setSizeComments(int value) {
+      
+      sizeComments_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string text = 4;</code>
+     * <code>int32 sizeComments = 4;</code>
      * @return This builder for chaining.
      */
-    public Builder clearText() {
+    public Builder clearSizeComments() {
       
-      text_ = getDefaultInstance().getText();
+      sizeComments_ = 0;
       onChanged();
       return this;
-    }
-    /**
-     * <code>string text = 4;</code>
-     * @param value The bytes for text to set.
-     * @return This builder for chaining.
-     */
-    public Builder setTextBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      text_ = value;
-      onChanged();
-      return this;
-    }
-
-    private com.plethora.TestworkClevertec2021.dto.ListOfComment listComment_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.plethora.TestworkClevertec2021.dto.ListOfComment, com.plethora.TestworkClevertec2021.dto.ListOfComment.Builder, com.plethora.TestworkClevertec2021.dto.ListOfCommentOrBuilder> listCommentBuilder_;
-    /**
-     * <code>.ListOfComment listComment = 5;</code>
-     * @return Whether the listComment field is set.
-     */
-    public boolean hasListComment() {
-      return listCommentBuilder_ != null || listComment_ != null;
-    }
-    /**
-     * <code>.ListOfComment listComment = 5;</code>
-     * @return The listComment.
-     */
-    public com.plethora.TestworkClevertec2021.dto.ListOfComment getListComment() {
-      if (listCommentBuilder_ == null) {
-        return listComment_ == null ? com.plethora.TestworkClevertec2021.dto.ListOfComment.getDefaultInstance() : listComment_;
-      } else {
-        return listCommentBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.ListOfComment listComment = 5;</code>
-     */
-    public Builder setListComment(com.plethora.TestworkClevertec2021.dto.ListOfComment value) {
-      if (listCommentBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        listComment_ = value;
-        onChanged();
-      } else {
-        listCommentBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.ListOfComment listComment = 5;</code>
-     */
-    public Builder setListComment(
-        com.plethora.TestworkClevertec2021.dto.ListOfComment.Builder builderForValue) {
-      if (listCommentBuilder_ == null) {
-        listComment_ = builderForValue.build();
-        onChanged();
-      } else {
-        listCommentBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.ListOfComment listComment = 5;</code>
-     */
-    public Builder mergeListComment(com.plethora.TestworkClevertec2021.dto.ListOfComment value) {
-      if (listCommentBuilder_ == null) {
-        if (listComment_ != null) {
-          listComment_ =
-            com.plethora.TestworkClevertec2021.dto.ListOfComment.newBuilder(listComment_).mergeFrom(value).buildPartial();
-        } else {
-          listComment_ = value;
-        }
-        onChanged();
-      } else {
-        listCommentBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.ListOfComment listComment = 5;</code>
-     */
-    public Builder clearListComment() {
-      if (listCommentBuilder_ == null) {
-        listComment_ = null;
-        onChanged();
-      } else {
-        listComment_ = null;
-        listCommentBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.ListOfComment listComment = 5;</code>
-     */
-    public com.plethora.TestworkClevertec2021.dto.ListOfComment.Builder getListCommentBuilder() {
-      
-      onChanged();
-      return getListCommentFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.ListOfComment listComment = 5;</code>
-     */
-    public com.plethora.TestworkClevertec2021.dto.ListOfCommentOrBuilder getListCommentOrBuilder() {
-      if (listCommentBuilder_ != null) {
-        return listCommentBuilder_.getMessageOrBuilder();
-      } else {
-        return listComment_ == null ?
-            com.plethora.TestworkClevertec2021.dto.ListOfComment.getDefaultInstance() : listComment_;
-      }
-    }
-    /**
-     * <code>.ListOfComment listComment = 5;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.plethora.TestworkClevertec2021.dto.ListOfComment, com.plethora.TestworkClevertec2021.dto.ListOfComment.Builder, com.plethora.TestworkClevertec2021.dto.ListOfCommentOrBuilder> 
-        getListCommentFieldBuilder() {
-      if (listCommentBuilder_ == null) {
-        listCommentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.plethora.TestworkClevertec2021.dto.ListOfComment, com.plethora.TestworkClevertec2021.dto.ListOfComment.Builder, com.plethora.TestworkClevertec2021.dto.ListOfCommentOrBuilder>(
-                getListComment(),
-                getParentForChildren(),
-                isClean());
-        listComment_ = null;
-      }
-      return listCommentBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -1044,41 +782,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:NewsDto)
+    // @@protoc_insertion_point(builder_scope:NewsDtoTitle)
   }
 
-  // @@protoc_insertion_point(class_scope:NewsDto)
-  private static final com.plethora.TestworkClevertec2021.dto.NewsDto DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:NewsDtoTitle)
+  private static final com.plethora.TestworkClevertec2021.dto.NewsDtoTitle DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.plethora.TestworkClevertec2021.dto.NewsDto();
+    DEFAULT_INSTANCE = new com.plethora.TestworkClevertec2021.dto.NewsDtoTitle();
   }
 
-  public static com.plethora.TestworkClevertec2021.dto.NewsDto getDefaultInstance() {
+  public static com.plethora.TestworkClevertec2021.dto.NewsDtoTitle getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<NewsDto>
-      PARSER = new com.google.protobuf.AbstractParser<NewsDto>() {
+  private static final com.google.protobuf.Parser<NewsDtoTitle>
+      PARSER = new com.google.protobuf.AbstractParser<NewsDtoTitle>() {
     @java.lang.Override
-    public NewsDto parsePartialFrom(
+    public NewsDtoTitle parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NewsDto(input, extensionRegistry);
+      return new NewsDtoTitle(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<NewsDto> parser() {
+  public static com.google.protobuf.Parser<NewsDtoTitle> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<NewsDto> getParserForType() {
+  public com.google.protobuf.Parser<NewsDtoTitle> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.plethora.TestworkClevertec2021.dto.NewsDto getDefaultInstanceForType() {
+  public com.plethora.TestworkClevertec2021.dto.NewsDtoTitle getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

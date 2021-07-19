@@ -24,8 +24,8 @@ public class News {
    private String title;
    @Column(name = "text")
    private String text;
-   @OneToMany(cascade = CascadeType.ALL, targetEntity = Comment.class)
-   @JoinColumn(name = "id_news")
+   @OneToMany(cascade = CascadeType.ALL, targetEntity = Comment.class)//связь один ко многим
+   @JoinColumn(name = "id_news") //присоединенная колонка комментария
    private List<Comment> comments;
 
 }

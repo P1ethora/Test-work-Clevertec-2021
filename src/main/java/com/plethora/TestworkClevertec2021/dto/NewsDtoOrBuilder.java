@@ -50,26 +50,17 @@ public interface NewsDtoOrBuilder extends
       getTextBytes();
 
   /**
-   * <code>repeated .ListOfComment comments = 5;</code>
+   * <code>.ListOfComment listComment = 5;</code>
+   * @return Whether the listComment field is set.
    */
-  java.util.List<com.plethora.TestworkClevertec2021.dto.ListOfComment> 
-      getCommentsList();
+  boolean hasListComment();
   /**
-   * <code>repeated .ListOfComment comments = 5;</code>
+   * <code>.ListOfComment listComment = 5;</code>
+   * @return The listComment.
    */
-  com.plethora.TestworkClevertec2021.dto.ListOfComment getComments(int index);
+  com.plethora.TestworkClevertec2021.dto.ListOfComment getListComment();
   /**
-   * <code>repeated .ListOfComment comments = 5;</code>
+   * <code>.ListOfComment listComment = 5;</code>
    */
-  int getCommentsCount();
-  /**
-   * <code>repeated .ListOfComment comments = 5;</code>
-   */
-  java.util.List<? extends com.plethora.TestworkClevertec2021.dto.ListOfCommentOrBuilder> 
-      getCommentsOrBuilderList();
-  /**
-   * <code>repeated .ListOfComment comments = 5;</code>
-   */
-  com.plethora.TestworkClevertec2021.dto.ListOfCommentOrBuilder getCommentsOrBuilder(
-      int index);
+  com.plethora.TestworkClevertec2021.dto.ListOfCommentOrBuilder getListCommentOrBuilder();
 }

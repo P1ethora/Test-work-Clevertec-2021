@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_package = "com.plethora.TestworkClevertec2021.dto";
+option java_multiple_files = true;
+
+message CommentDto {
+
+  int64 id = 1;
+  string date = 2;
+  string text = 3;
+  string username = 4;
+
+}
+
+message NewsDto {
+
+  int64 id = 1;
+  string date = 2;
+  string title = 3;
+  string text = 4;
+  repeated ListOfComment comments=5;
+
+}
+
+message ListOfComment {
+  repeated CommentDto comments=1;
+}

@@ -4,9 +4,18 @@ import com.plethora.TestworkClevertec2021.dto.NewsDto;
 import com.plethora.TestworkClevertec2021.model.News;
 import com.plethora.TestworkClevertec2021.repo.NewsRepo;
 import lombok.AllArgsConstructor;
+import lombok.SneakyThrows;
+import org.apache.lucene.search.Query;
+import org.hibernate.search.jpa.FullTextEntityManager;
+import org.hibernate.search.jpa.FullTextQuery;
+import org.hibernate.search.jpa.Search;
+import org.hibernate.search.query.dsl.QueryBuilder;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -20,9 +29,11 @@ import java.util.Date;
 public class NewsService {
 
     private final NewsRepo newsRepo;
+    private final EntityManagerFactory emf;
 
     /**
      * Получить новость по её id
+     *
      * @param newsId id новости
      * @return возвращает новость
      */
@@ -32,6 +43,7 @@ public class NewsService {
 
     /**
      * Позволяет получить список новостей с постраничным представлением
+     *
      * @param pageable из запроса
      * @return список новостей
      */
@@ -46,6 +58,7 @@ public class NewsService {
 
     /**
      * Добавление новости
+     *
      * @param newsDto proto dto новости
      */
     public void addNews(NewsDto newsDto) {
@@ -60,6 +73,7 @@ public class NewsService {
 
     /**
      * Обновление новости
+     *
      * @param newsDto dto новости
      */
     public void updateNews(NewsDto newsDto) {
@@ -71,6 +85,7 @@ public class NewsService {
 
     /**
      * Удаление новости
+     *
      * @param newsId id новости
      */
     public void deleteNews(long newsId) {
@@ -79,11 +94,45 @@ public class NewsService {
 
     /**
      * Поиск
+     *
      * @param keyword введенный текст
      * @return найденные новости
      */
-    public List<News> search(String keyword) {
-        return newsRepo.search(keyword);
+
+    @SneakyThrows
+    public List<News> search(String keyword, String param) {
+
+        if (param.equals("text") || param.equals("title")) {
+            EntityManager em = emf.createEntityManager();
+            FullTextEntityManager fullTextEntityManager = Search.getFullTextEntityManager(em);
+            fullTextEntityManager.createIndexer().startAndWait();
+
+            Query query = getQuery(getQueryBuilder(fullTextEntityManager),param,keyword);
+
+            FullTextQuery jpaQuery
+                    = fullTextEntityManager.createFullTextQuery(query, News.class);
+
+
+            return jpaQuery.getResultList();
+        } else {
+            return null;
+        }
     }
+
+    private QueryBuilder getQueryBuilder(FullTextEntityManager fullTextEntityManager) {
+        return fullTextEntityManager.getSearchFactory()
+                .buildQueryBuilder()
+                .forEntity(News.class)
+                .get();
+    }
+
+    private Query getQuery(QueryBuilder queryBuilder, String param, String keyword) {
+        return queryBuilder
+                .keyword()
+                .onField(param)
+                .matching(keyword)
+                .createQuery();
+    }
+
 
 }

@@ -38,7 +38,7 @@ public class NewsController {
      * @return произведенное действие и http статус
      */
     @GetMapping(path = "/{id}")
-    public String getNews(@PathVariable int id, @PageableDefault(size = 1) Pageable pageable) {
+    public String getNews(@PathVariable int id, @PageableDefault(size = 5) Pageable pageable) {
         try {
             News news = newsService.getNews(id);
             List<Comment> commentList = news.getComments();
@@ -110,12 +110,13 @@ public class NewsController {
     /**
      * Поиск
      * @param keyword введенный текст
-     * @param param параметр новости по которому производится поиск
+//     * @param param параметр новости по которому производится поиск
      * @return найденные новости
      */
     @GetMapping("/search/{keyword}")
-    public List<News> search(@PathVariable String keyword, @RequestParam String param) {
-       return newsService.search(keyword);
+    public List<News> search(@PathVariable String keyword, @RequestParam("param")String param) {
+
+       return newsService.search(keyword,param);
 
     }
 }

@@ -45,6 +45,7 @@ public class DtoNewsService {
                 .setId(news.getId())
                 .setDate(news.getDate().toString())//дата в proto представленна в виде строки
                 .setTitle(news.getTitle())
+                .setSizeComments(news.getComments().size())
                 .build();
     }
 

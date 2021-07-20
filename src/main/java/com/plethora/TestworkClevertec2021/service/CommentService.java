@@ -4,6 +4,7 @@ import com.plethora.TestworkClevertec2021.dto.CommentDto;
 import com.plethora.TestworkClevertec2021.model.Comment;
 import com.plethora.TestworkClevertec2021.repo.CommentRepo;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import java.util.Date;
 /**
  * Сервис обслуживающий запросы связанные с комментариями
  */
+@Slf4j
 @Service
 @AllArgsConstructor
 public class CommentService {
@@ -37,6 +39,7 @@ public class CommentService {
        Comment comment = commentRepo.findById(commentDto.getId()).orElse(null);
        comment.setText(commentDto.getText());
        commentRepo.save(comment);
+        log.info("The comment " +commentDto.getId() +" has been updated");
     }
 
     /**
@@ -53,6 +56,7 @@ public class CommentService {
         comment.setIdNews(idNews);
         comment.setText(commentDto.getText());
         commentRepo.save(comment);
+        log.info("A comment " + comment.getId() +" has been added");
     }
 
     /**

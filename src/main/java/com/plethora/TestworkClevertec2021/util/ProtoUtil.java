@@ -3,10 +3,12 @@ package com.plethora.TestworkClevertec2021.util;
 import com.google.protobuf.Message;
 import com.google.protobuf.MessageOrBuilder;
 import com.google.protobuf.util.JsonFormat;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Конвертер прото классов в JSON формат и наоборот
  */
+@Slf4j
 public class ProtoUtil {
 
     /**
@@ -16,6 +18,7 @@ public class ProtoUtil {
      * @return JSON
      */
     public static <T extends Message> String toJson(T obj){
+        log.info("Converting DTO " +obj.getClass() + "to JSON");
         try{
             return JsonFormat.printer().print(obj);
         }catch(Exception e){
@@ -31,6 +34,7 @@ public class ProtoUtil {
      * @return proto объект
      */
     public static <T extends MessageOrBuilder> T toProto(String protoJsonStr, T message){
+        log.info("Converting JSON " +protoJsonStr+ " to DTO");
         try{
             Message.Builder builder = message.getDefaultInstanceForType().toBuilder();
             JsonFormat.parser().ignoringUnknownFields().merge(protoJsonStr,builder);

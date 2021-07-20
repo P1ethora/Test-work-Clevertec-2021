@@ -5,6 +5,7 @@ import com.plethora.TestworkClevertec2021.model.News;
 import com.plethora.TestworkClevertec2021.repo.NewsRepo;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.lucene.search.Query;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.FullTextQuery;
@@ -24,6 +25,7 @@ import java.util.Date;
 /**
  * Сервис обрабатывающий запросы связанные с новостями
  */
+@Slf4j
 @Service
 @AllArgsConstructor
 public class NewsService {
@@ -69,6 +71,7 @@ public class NewsService {
         news.setDate(date);
         news.setComments(new ArrayList<>());
         newsRepo.save(news);
+        log.info("The news " + news.getId() + " was added");
     }
 
     /**
@@ -81,6 +84,7 @@ public class NewsService {
         news.setTitle(newsDto.getTitle());
         news.setText(newsDto.getText());
         newsRepo.save(news);
+        log.info("The news " + newsDto.getId() + " has been updated");
     }
 
     /**

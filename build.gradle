@@ -32,6 +32,9 @@ dependencies {
     implementation group: 'com.h2database', name: 'h2', version: '1.4.200'
     implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.23'
     implementation group: 'org.hibernate', name: 'hibernate-search-orm', version: '5.11.9.Final'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.31'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '2.5.2'
+
 }
 
 //sourceSets {

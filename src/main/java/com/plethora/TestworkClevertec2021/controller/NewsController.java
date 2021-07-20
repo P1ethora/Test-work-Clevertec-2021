@@ -22,6 +22,7 @@ import java.util.NoSuchElementException;
 /**
  * Контроллер обрабатывающий запросы связанные с новостями
  */
+//@Slf4j
 @RestController
 @RequestMapping(path = "/news")
 @AllArgsConstructor
@@ -39,10 +40,11 @@ public class NewsController {
      */
     @GetMapping(path = "/{id}")
     public String getNews(@PathVariable int id, @PageableDefault(size = 5) Pageable pageable) {
+//        log.info("Request to receive news" + id);
         try {
             News news = newsService.getNews(id);
             List<Comment> commentList = news.getComments();
-            NewsDto newsDto = dtoNewsService.toDto(news, pageableService.pageableList(commentList,pageable));
+            NewsDto newsDto = dtoNewsService.toDtoNews(news, pageableService.pageableList(commentList,pageable));
             return ProtoUtil.toJson(newsDto);
         } catch (NoSuchElementException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -56,6 +58,7 @@ public class NewsController {
      */
     @GetMapping()
     public String getAllTitleNews(@PageableDefault(size = 5) Pageable pageable){
+//        log.info("Request to get all headers");
         List<News> newsList = newsService.getAllPageableNews(pageable);
         return ProtoUtil.toJson(dtoNewsService.getListNewsDtoTitle(newsList));
     }
@@ -67,6 +70,7 @@ public class NewsController {
      */
     @GetMapping("/all")
     public List<News> getAllNews(@PageableDefault(size = 5) Pageable pageable) {
+//        log.info("Request to receive all the news");
         return newsService.getAllPageableNews(pageable);
     }
 
@@ -77,6 +81,7 @@ public class NewsController {
      */
     @PostMapping()
     public ResponseEntity<?> addNews(@RequestBody String newsJson) {
+//        log.info("Request to add news " + newsJson);
         newsService.addNews(ProtoUtil.toProto(newsJson,NewsDto.getDefaultInstance()));
         return new ResponseEntity<>(ResponseType.ADDED, HttpStatus.CREATED);
     }
@@ -88,6 +93,7 @@ public class NewsController {
      */
     @PutMapping()
     public ResponseEntity<ResponseType> updateNews(@RequestBody String newsJson) {
+//        log.info("Request to update the news " + newsJson);
         try {
             newsService.updateNews(ProtoUtil.toProto(newsJson,NewsDto.getDefaultInstance()));
             return new ResponseEntity<>(ResponseType.UPDATED, HttpStatus.OK);
@@ -103,6 +109,7 @@ public class NewsController {
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<ResponseType> deleteNews(@PathVariable int id) {
+//        log.info("Request to delete a news " + id);
         newsService.deleteNews(id);
         return new ResponseEntity<>(ResponseType.DELETED, HttpStatus.OK);
     }

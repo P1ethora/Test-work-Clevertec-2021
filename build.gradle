@@ -23,7 +23,9 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
     implementation group: 'com.google.protobuf', name: 'protobuf-java', version: '3.17.3'
     implementation group: 'io.grpc', name: 'grpc-all', version: '1.39.0'
 
@@ -33,7 +35,9 @@ dependencies {
     implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.23'
     implementation group: 'org.hibernate', name: 'hibernate-search-orm', version: '5.11.9.Final'
     implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.31'
+
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '2.5.2'
+    implementation group: 'org.elasticsearch', name: 'elasticsearch', version: '7.13.4'
 
 }
 

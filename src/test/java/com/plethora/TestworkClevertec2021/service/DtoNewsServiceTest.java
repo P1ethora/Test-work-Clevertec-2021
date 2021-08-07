@@ -2,7 +2,9 @@ package com.plethora.TestworkClevertec2021.service;
 
 
 import com.plethora.TestworkClevertec2021.DataExpected;
+import com.plethora.TestworkClevertec2021.dto.ListOfNewsTitle;
 import com.plethora.TestworkClevertec2021.dto.NewsDto;
+import com.plethora.TestworkClevertec2021.dto.NewsDtoTitle;
 import com.plethora.TestworkClevertec2021.model.Comment;
 import com.plethora.TestworkClevertec2021.model.News;
 
@@ -31,12 +33,22 @@ class DtoNewsServiceTest {
 
         Assertions.assertEquals(expected, actual);
     }
-//
-//    @Test
-//    void toNewsDtoTitle() {
-//    }
-//
-//    @Test
-//    void getListNewsDtoTitle() {
-//    }
+
+    @Test
+    void toNewsDtoTitle() {
+        News news = DataExpected.news;
+        NewsDtoTitle expected = DataExpected.newsDtoTitle;
+        NewsDtoTitle actual = dtoNewsService.toNewsDtoTitle(news);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void getListNewsDtoTitle() {
+        List<News> newsList = DataExpected.newsList;
+        ListOfNewsTitle expected = DataExpected.listOfNewsTitle;
+        ListOfNewsTitle actual = dtoNewsService.getListNewsDtoTitle(newsList);
+
+        Assertions.assertEquals(expected, actual);
+    }
 }

@@ -1,8 +1,6 @@
 package com.plethora.TestworkClevertec2021;
 
-import com.plethora.TestworkClevertec2021.dto.CommentDto;
-import com.plethora.TestworkClevertec2021.dto.ListOfComment;
-import com.plethora.TestworkClevertec2021.dto.NewsDto;
+import com.plethora.TestworkClevertec2021.dto.*;
 import com.plethora.TestworkClevertec2021.model.Comment;
 import com.plethora.TestworkClevertec2021.model.News;
 
@@ -26,6 +24,12 @@ public class DataExpected {
     public static ListOfComment listOfComment;
     public static CommentDto commentDto1;
     public static CommentDto commentDto2;
+
+    public static NewsDtoTitle newsDtoTitle;
+
+    public static List<News> newsList = new ArrayList<>();
+    public static ListOfNewsTitle listOfNewsTitle;
+    public static List<NewsDtoTitle> newsDtoTitles = new ArrayList<>();
 
     static {
         comment1.setText("Test comment1");
@@ -77,6 +81,21 @@ public class DataExpected {
                 .setText("Test text news")
                 .setDate("Thu Aug 05 17:45:45 MSK 2021")
                 .setListComment(listOfComment)
+                .build();
+
+        newsDtoTitle = NewsDtoTitle.newBuilder()
+                .setId(1)
+                .setTitle("Test title news")
+                .setDate("Thu Aug 05 17:45:45 MSK 2021")
+                .setSizeComments(2)
+                .build();
+
+        newsList.add(news);
+
+        newsDtoTitles.add(newsDtoTitle);
+
+        listOfNewsTitle = ListOfNewsTitle.newBuilder()
+                .addAllNewsDtoTitles(newsDtoTitles)
                 .build();
     }
 
